@@ -4,7 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neuronion</title>
-  <script type="module" crossorigin src="/assets/index-D2wJv0xU.js"></script>
+
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/"
+          }
+        }
+      </script>
+  <script type="module" crossorigin src="/assets/index-DPHI8tsb.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/index-CFI2ltQ_.css">
 </head>
 <body>
@@ -14,12 +23,10 @@
         </div>
         <div class="small-rectangles">
             <div class="small-rectangle" id="small-rectangle-1">
-                <button class="file-button" onclick="document.getElementById('file-input-2').click()">Load File</button>
-                <input type="file" id="file-input-2" style="display: none;" onchange="loadFile('small-1')" />
+                <button id="small-button-1">Load File</button>
             </div>
             <div class="small-rectangle" id="small-rectangle-2">
-                <button class="file-button" onclick="document.getElementById('file-input-3').click()">Load File</button>
-                <input type="file" id="file-input-3" style="display: none;" onchange="loadFile('small-2')" />
+                <button id="small-button-2">Load File</button>
             </div>
         </div>
     </div>

@@ -1,11 +1,5 @@
 import * as THREE from 'three';
 
-// Initialization of three.js scenes
-let scenes = {
-    big: initThreeJS('big-rectangle'),
-    small1: initThreeJS('small-rectangle-1'),
-    small2: initThreeJS('small-rectangle-2')
-};
 
 function initThreeJS(containerId) {
     let container = document.getElementById(containerId);
@@ -27,7 +21,12 @@ function initThreeJS(containerId) {
     return { scene, camera, renderer };
 }
 
-function animateBigRectangle(sceneObj, cube) {
+function animateBigRectangle() {
+    let sceneObj = initThreeJS('big-rectangle');
+    let geometry = new THREE.BoxGeometry();
+    let material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    let cube = new THREE.Mesh(geometry, material);
+    sceneObj.scene.add(cube);
     sceneObj.animate = function () {
         requestAnimationFrame(sceneObj.animate);
         cube.rotation.x += 0.01;
@@ -37,21 +36,19 @@ function animateBigRectangle(sceneObj, cube) {
     sceneObj.animate();
 }
 
-function loadFile(type) {
-    // Handle the file loading and update the scene
-    // For demonstration, we'll just add a cube to the scene
-    let sceneObj = scenes[type];
+function animateSmallRectangle(container) {
+    let sceneObj = initThreeJS(container);
     let geometry = new THREE.BoxGeometry();
-    let material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    let material = new THREE.MeshBasicMaterial({ color: 0x0000ff });
     let cube = new THREE.Mesh(geometry, material);
     sceneObj.scene.add(cube);
-
-    // Adjust camera or scene settings based on file type
-    if (type === 'big') {
-        animateBigRectangle(sceneObj, cube)
-    } else {
-        animateBigRectangle(sceneObj, cube)
-    }
+    sceneObj.animate = function () {
+        requestAnimationFrame(sceneObj.animate);
+        cube.rotation.x += 0.01;
+        cube.rotation.y += 0.01;
+        sceneObj.renderer.render(sceneObj.scene, sceneObj.camera);
+    };
+    sceneObj.animate();
 }
 
 let buttons = {
@@ -60,8 +57,35 @@ let buttons = {
     small2: document.getElementById("small-button-2"),
 };
 
-console.log('hi');
-
 buttons['big'].onclick = function() {
-    loadFile('big');
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.style.display = 'none';
+    fileInput.click();
+    fileInput.onchange = function() {
+        animateBigRectangle();
+    }
+    this.hidden = true;
+}
+
+buttons['small1'].onclick = function() {
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.style.display = 'none';
+    fileInput.click();
+    fileInput.onchange = function() {
+        animateSmallRectangle('small-rectangle-1');
+    }
+    this.hidden = true;
+}
+
+buttons['small2'].onclick = function() {
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.style.display = 'none';
+    fileInput.click();
+    fileInput.onchange = function() {
+        animateSmallRectangle('small-rectangle-2');
+    }
+    this.hidden = true;
 }
