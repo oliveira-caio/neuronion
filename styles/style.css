@@ -1,0 +1,45 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 80%;
+}
+
+.big-rectangle, .small-rectangle {
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.big-rectangle {
+    flex: 1;
+}
+
+.small-rectangles {
+    display: flex;
+    flex: 1;
+}
+
+.small-rectangle {
+    flex: 1;
+    margin: 10px;
+}
+
+.file-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}

@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>hello, world.</title>
-	</head>
-	<body>
-		<script type="module" src="/scripts/main.js"></script>
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuronion</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="big-rectangle">
+            <button class="file-button" onclick="loadFile()">Load File</button>
+        </div>
+        <div class="small-rectangles">
+            <div class="small-rectangle">
+                <button class="file-button" onclick="loadFile()">Load File</button>
+            </div>
+            <div class="small-rectangle">
+                <button class="file-button" onclick="loadFile()">Load File</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function loadFile() {
+            alert('Load file button clicked');
+        }
+    </script>
+</body>
 </html>
