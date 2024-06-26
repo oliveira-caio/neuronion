@@ -12,8 +12,8 @@ body, html {
 .container {
     display: flex;
     flex-direction: column;
-    width: 80%;
-    height: 80%;
+    width: 95%;
+    height: 95%;
 }
 
 .big-rectangle, .small-rectangle {
@@ -21,7 +21,7 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px;
+    margin: 5px;
 }
 
 .big-rectangle {
@@ -35,7 +35,7 @@ body, html {
 
 .small-rectangle {
     flex: 1;
-    margin: 10px;
+    margin: 5px;
 }
 
 .file-button {
